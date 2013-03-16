@@ -1,0 +1,37 @@
+@mixin unstyled-list
+  ul
+    list-style: none
+    margin: 0
+    padding: 0
+
+@mixin horizontal-list
+  @include unstyled-list
+  ul
+    float: right
+
+    > li
+      float: left 
+      margin-left: 30px
+
+@mixin text-shadow($intensity: medium)
+  @if $intensity == ultralight
+    text-shadow: 1px 1px 1px rgba(0,0,0,.05)
+  @else if $intensity == light
+    text-shadow: 1px 1px 1px rgba(0,0,0,.10)
+  @else if $intensity == medium
+    text-shadow: 1px 1px 1px rgba(0,0,0,.15)
+  @else if $intensity == heavy
+    text-shadow: 1px 1px 1px rgba(0,0,0,.20)
+  @else
+    text-shadow: 1px 1px 1px rgba(0,0,0,$intensity)
+
+@mixin box-shadow()
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25)
+
+@mixin drop-shadow()
+  @include box-shadow()
+
+@mixin rounded($roundness: 5px)
+  border-radius: $roundness
+
+  
